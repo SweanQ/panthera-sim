@@ -17,7 +17,29 @@ test('users can authenticate using the login screen', function () {
     ]);
 
     $this->assertAuthenticated();
-    $response->assertRedirect(route('dashboard', absolute: false));
+    $response->assertRedirect(route('employee.dashboard'));
+});
+
+test('customers are sent to their order history after login', function () {
+    $customer = User::factory()->create(['role' => 'customer']);
+
+    $this->post('/login', [
+        'email' => $customer->email,
+        'password' => 'password',
+    ])->assertRedirect(route('customer.orders'));
+
+    $this->assertAuthenticatedAs($customer);
+});
+
+test('employees are sent to the employee workspace after login', function () {
+    $employee = User::factory()->create(['role' => 'pegawai']);
+
+    $this->post('/login', [
+        'email' => $employee->email,
+        'password' => 'password',
+    ])->assertRedirect(route('employee.dashboard'));
+
+    $this->assertAuthenticatedAs($employee);
 });
 
 test('users can not authenticate with invalid password', function () {

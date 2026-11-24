@@ -4,10 +4,10 @@
 <div class="max-w-2xl mx-auto">
     <div class="mb-6 flex items-center justify-between">
         <div>
-            <h1 class="text-2xl font-semibold tracking-tight text-white">Catat Pesanan Baru</h1>
-            <p class="text-sm text-zinc-400 mt-1">Input detail pesanan apparel dan pembayaran uang muka (minimal DP 50%).</p>
+            <h1 class="text-2xl font-semibold tracking-tight text-zinc-900">Catat Pesanan Baru</h1>
+            <p class="text-sm text-stone-600 mt-1">Input detail pesanan apparel dan pembayaran uang muka (minimal DP 50%).</p>
         </div>
-        <a href="{{ route('orders.index') }}" class="text-sm text-zinc-400 hover:text-white">&larr; Kembali</a>
+        <a href="{{ route('orders.index') }}" class="text-sm text-stone-600 hover:text-zinc-900">&larr; Kembali</a>
     </div>
 
     <div class="rounded-xl bg-zinc-900/70 border border-zinc-800/90 p-6 sm:p-8">

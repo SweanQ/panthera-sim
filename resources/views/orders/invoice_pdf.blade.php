@@ -22,7 +22,7 @@
     <p>
         <strong>Pelanggan:</strong> {{ $order->customer->name }} ({{ $order->customer->whatsapp_number }})<br>
         <strong>Alamat:</strong> {{ $order->customer->address ?? '-' }}<br>
-        <strong>Tanggal Cetak:</strong> {{ now()->format('d M Y H:i') }} | <strong>Dicatat oleh:</strong> {{ $order->user->name }}
+        <strong>Tanggal Cetak:</strong> {{ now()->format('d M Y H:i') }} | <strong>Dicatat oleh:</strong> {{ $order->user?->name ?? 'Pelanggan' }}
     </p>
 
     <table>
@@ -38,7 +38,7 @@
         <tbody>
             <tr>
                 <td>{{ $order->product->name }}</td>
-                <td>Ukuran: {{ $order->size }}, Warna: {{ $order->color }}</td>
+                <td>Ukuran: {{ $order->size }}, Warna: {{ $order->color }}{{ $order->notes ? ', Catatan: ' . $order->notes : '' }}</td>
                 <td class="right">Rp {{ number_format($order->product->base_price, 0, ',', '.') }}</td>
                 <td class="right">{{ $order->quantity }}</td>
                 <td class="right">Rp {{ number_format($order->total_price, 0, ',', '.') }}</td>

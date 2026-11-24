@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'Staf  Panthera',
+            'name' => 'Staf Panthera',
             'email' => 'pegawai@panthera.com',
             'role' => 'pegawai',
             'password' => Hash::make('password123'),
