@@ -2,11 +2,14 @@
 
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect()->route('login');
-});
+    return view('welcome', [
+        'products' => Product::query()->orderBy('name')->get(),
+    ]);
+})->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [OrderController::class, 'index'])->name('dashboard');
